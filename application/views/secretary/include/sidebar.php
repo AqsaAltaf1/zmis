@@ -1,0 +1,17 @@
+<?php
+$user_type = $this->session->userdata('user_type');
+if($user_type == "audit")
+{
+?>
+<?php include('sidebar_audit.php');?>
+<?php
+}
+else if($user_type == "gs")
+{
+include('sidebar_gs.php');
+}
+else
+{
+include('sidebar_district.php');
+}
+?>

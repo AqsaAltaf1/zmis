@@ -1,0 +1,40 @@
+DIST_GA_mustahiq_reg_model.php   // ADD Below functions in this file
+
+function manage_chairman_dataentryform($formArray)
+	{
+		$this->db->insert("zakatentryforms",$formArray);
+		return $this->db->insert_id();
+	}
+
+SELECT DATE_ADD(STR_TO_DATE(CenterTime,"%m/%e/%Y"), INTERVAL 364 DAY) as Yeat FROM `owo_schedule` WHERE 1
+
+SELECT `CenterTime`,`district_name`,`Description`,`HospitalName`,`Geo_Location`,`PatientsPerDay`,`AddedBy`,`AddedOn` FROM `owo_schedule` WHERE  Month(STR_TO_DATE(CenterTime,"%m/%e/%Y"))=12;
+ DATE_ADD(STR_TO_DATE(CenterTime,"%m/%e/%Y"), INTERVAL 364 DAY) as Yeat
+
+insert into owo_schedule (`CenterTime`,`district_name`,`Description`,`HospitalName`,`Geo_Location`,`PatientsPerDay`,`AddedBy`,`AddedOn`) 
+SELECT DATE_FORMAT(DATE_ADD(STR_TO_DATE(CenterTime,"%m/%e/%Y"), INTERVAL 105 DAY),"%m/%d/%Y") as CenterTime,`district_name`,`Description`,`HospitalName`,`Geo_Location`,`PatientsPerDay`,`AddedBy`,`AddedOn` FROM `owo_schedule` WHERE Month(STR_TO_DATE(CenterTime,"%m/%e/%Y"))=12
+
+
+
+
+UPDATE zakatentry forms t1 
+        INNER JOIN lzc_list t2 ON 
+        t1.LZC_Name= t2.LZC_Name
+        SET t1.`LZC_ID` = t2.ID
+
+select trim(left(`LZC_Name`,Locate("(",LZC_Name)-1)) from zakatentryforms
+        
+            
+            Update zakatentryforms set
+LZC_Name=trim(left(LZC_Name,Locate("(",LZC_Name)-1)) 
+where LZC_Name like '%Shahidan%'
+
+ Update zakatentryforms set
+LZC_Name=trim(left(LZC_Name,Locate("(",LZC_Name)-1)) where LZC_Name like '%(%'
+            
+
+
+
+
+
+

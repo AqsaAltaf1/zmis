@@ -1,0 +1,136 @@
+DIST_GA_mustahiq_reg_model.php   // ADD Below functions in this file
+
+function manage_chairman_dataentryform($formArray)
+	{
+		$this->db->insert("zakatentryforms",$formArray);
+		return $this->db->insert_id();
+	}
+
+SELECT DATE_ADD(STR_TO_DATE(CenterTime,"%m/%e/%Y"), INTERVAL 364 DAY) as Yeat FROM `owo_schedule` WHERE 1
+
+SELECT `CenterTime`,`district_name`,`Description`,`HospitalName`,`Geo_Location`,`PatientsPerDay`,`AddedBy`,`AddedOn` FROM `owo_schedule` WHERE  Month(STR_TO_DATE(CenterTime,"%m/%e/%Y"))=12;
+ DATE_ADD(STR_TO_DATE(CenterTime,"%m/%e/%Y"), INTERVAL 364 DAY) as Yeat
+
+insert into owo_schedule (`CenterTime`,`district_name`,`Description`,`HospitalName`,`Geo_Location`,`PatientsPerDay`,`AddedBy`,`AddedOn`) 
+SELECT DATE_FORMAT(DATE_ADD(STR_TO_DATE(CenterTime,"%m/%e/%Y"), INTERVAL 105 DAY),"%m/%d/%Y") as CenterTime,`district_name`,`Description`,`HospitalName`,`Geo_Location`,`PatientsPerDay`,`AddedBy`,`AddedOn` FROM `owo_schedule` WHERE Month(STR_TO_DATE(CenterTime,"%m/%e/%Y"))=12
+
+
+
+UPDATE `mustahiqeen` SET `LZC_id` = '4088' WHERE `mustahiqeen`.`LZCActualName` = 'Aligrama' AND `mustahiqeen`.`LZC_id` = 0 LIMIT 1;
+
+
+UPDATE mustahiqeen t1 
+        INNER JOIN lzc_list t2 ON 
+        t1.LZC_ID = t2.id
+        SET t1.LZCActualName = t2.lzc_name
+        where device='Mobile' and LZCActualName REGEXP '^[0-9]+$'
+
+
+UPDATE beneficiaries_info t1 INNER JOIN district t2 ON 
+t1.district_id = t2.id SET t1.district_name = t2.district_name;
+UPDATE institutes_beneficiaries t1 INNER JOIN district t2 ON 
+t1.district_id = t2.id SET t1.district_name = t2.district_name;
+
+
+
+
+***************************************************************************
+select District, Darul_Kafala, Hearing_Mute,MRPH_Center,VTCDP_Center,Welfare_Home,Women_Hostel,Panahgah,Rehab_Center,Visual_Handicapped, Darul_Kafala+ Hearing_Mute+MRPH_Center+VTCDP_Center+Welfare_Home+Women_Hostel+Panahgah+Rehab_Center+Visual_Handicapped as 'Grant Total' from 
+ ( select district_name as District, 
+sum(case when institutes_type = 'darul_kafala' then Total else 0 end) as Darul_Kafala, 
+sum(case when institutes_type = 'hearing_mute' then Total else 0 end) as 
+Hearing_Mute, 
+sum(case when institutes_type = 'mrph_center' then Total else 0 end) as 
+MRPH_Center, 
+sum(case when institutes_type = 'panahgah' then Total else 0 end) as Panahgah, 
+sum(case when institutes_type = 'rehab_center' then Total else 0 end) as 
+Rehab_Center, 
+sum(case when institutes_type = 'visual_handicapped' then Total else 0 end) as Visual_Handicapped, 
+sum(case when institutes_type = 'vtcdp_center' then Total else 0 end) as 
+VTCDP_Center, 
+sum(case when institutes_type = 'welfare_home' then Total else 0 end) as 
+Welfare_Home, 
+sum(case when institutes_type = 'women_hostel' then Total else 0 end) as 
+'Women_Hostel'
+from (select District_Name, `institutes_type`, count(*) as Total from sw_centers group by District_Name, institutes_type) aa group by District_Name 
+ ) ab
+ UNION ALL 
+ 
+ select "Grant Total" as District, Sum(Darul_Kafala) as Darul_Kafala, sum(Hearing_Mute) as Hearing_Mute ,sum(MRPH_Center) as MRPH_Center,
+sum(VTCDP_Center) as VTCDP_Center,
+sum(Welfare_Home) as Welfare_Home,
+sum(Women_Hostel) as Women_Hostel,
+sum(Panahgah) as Panahgah,
+sum(Rehab_Center) as Rehab_Center,
+sum(Visual_Handicapped) as Visual_Handicapped, 
+sum(Darul_Kafala+ Hearing_Mute+MRPH_Center+VTCDP_Center+Welfare_Home+Women_Hostel+Panahgah+Rehab_Center+Visual_Handicapped) as 'Grant Total' from 
+ ( select district_name as District, 
+sum(case when institutes_type = 'darul_kafala' then Total else 0 end) as Darul_Kafala, 
+sum(case when institutes_type = 'hearing_mute' then Total else 0 end) as 
+Hearing_Mute, 
+sum(case when institutes_type = 'mrph_center' then Total else 0 end) as 
+MRPH_Center, 
+sum(case when institutes_type = 'panahgah' then Total else 0 end) as Panahgah, 
+sum(case when institutes_type = 'rehab_center' then Total else 0 end) as 
+Rehab_Center, 
+sum(case when institutes_type = 'visual_handicapped' then Total else 0 end) as Visual_Handicapped, 
+sum(case when institutes_type = 'vtcdp_center' then Total else 0 end) as 
+VTCDP_Center, 
+sum(case when institutes_type = 'welfare_home' then Total else 0 end) as 
+Welfare_Home, 
+sum(case when institutes_type = 'women_hostel' then Total else 0 end) as 
+'Women_Hostel'
+from (select District_Name, `institutes_type`, count(*) as Total from sw_centers group by District_Name, institutes_type
+     ) aaa group by District_Name 
+     ) abc
+ 
+*********************************************************************************
+select district_name, 
+sum(case when role_type = 'pwd' then Total else 0 end) as 
+'PWD',
+sum(case when role_type = 'student' then Total else 0 end) as 
+'student',
+sum(case when role_type = 'senior_citizens' then Total else 0 end) as 
+'senior_citizens',
+sum(case when role_type = 'transgender' then Total else 0 end) as 
+'transgender',
+sum(case when role_type = 'darul_kafala' then Total else 0 end) as Darul_Kafala, 
+sum(case when role_type = 'hearing_mute' then Total else 0 end) as 
+Hearing_Mute, 
+sum(case when role_type = 'mrph_center' then Total else 0 end) as 
+MRPH_Center, 
+sum(case when role_type = 'panahgah' then Total else 0 end) as Panahgah, 
+sum(case when role_type = 'rehab_center' then Total else 0 end) as 
+Rehab_Center, 
+sum(case when role_type = 'visual_handicapped' then Total else 0 end) as Visual_Handicapped, 
+sum(case when role_type = 'vtcdp_center' then Total else 0 end) as 
+VTCDP_Center, 
+sum(case when role_type = 'welfare_home' then Total else 0 end) as 
+Welfare_Home, 
+sum(case when role_type = 'women_hostel' then Total else 0 end) as 
+'Women_Hostel' from (select district_name, `role_type`, count(*) as Total from institutes_beneficiaries group by district_name, role_type UNION ALL select district_name, role_type, count(*) as Total from beneficiaries_info group by district_name, role_type) as a  group by district_name
+
+
+SELECT s.* FROM (select @varStart := '2021-01-09' p) par, (select @varEnd:= '2022-01-10' p2) par2, showprogress s
+
+Copy it in Daily Report Direct_daily_reports.php Line 42
+
+$update_qry = "UPDATE beneficiaries_info t1 INNER JOIN district t2 ON t1.district_id = t2.id SET t1.district_name = t2.district_name;";
+$querys = $this->db->query($update_qry);
+$update_qry = "UPDATE institutes_beneficiaries t1 INNER JOIN district t2 ON t1.district_id = t2.id SET t1.district_name = t2.district_name;";
+$querys = $this->db->query($update_qry);
+
+
+Update owo_schedule set CenterTime2 = date_format(str_to_date(CenterTime, '%m/%d/%Y'), '%Y-%m-%d')
+
+
+
+UPDATE beneficiaries_info t1 INNER JOIN district t2 ON 
+t1.district_id = t2.id SET t1.district_name = t2.district_name;
+
+
+
+
+
+
+
