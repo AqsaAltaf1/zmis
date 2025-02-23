@@ -1,6 +1,7 @@
 <?php
 $page = $this->uri->segment(1);
 $subPage = $this->uri->segment(2);
+$fullPage = $page . '/' . $subPage;
 ?>
 
 <nav class="mt-2">
@@ -10,7 +11,7 @@ $subPage = $this->uri->segment(2);
 with font-awesome or any other icon font library -->
 
     <?php
-     if (($page == "Secretary_dashboard") || ($page == "Sec_Pza_dist_genderwise_reports")  || ($page == "Sec_Pza_housestatus_reports") || ($page == "Sec_Pza_dist_genderwise_reports") || ($page == "Sec_Pza_category_wise_report") || ($page == "Sec_Pza_head_wise_report") || ($page == "Sec_RejectedMustahiqeen")) {
+     if (($page == "Secretary_dashboard") || ($page == "Sec_Pza_dist_genderwise_reports")  || ($page == "Sec_Pza_housestatus_reports") || ($page == "Sec_Pza_dist_genderwise_reports") || ($page == "Sec_Pza_category_wise_report") || ($page == "Sec_Pza_head_wise_report") || ($page == "Sec_RejectedMustahiqeen") || ($fullPage == "funds/fund_received")) {
       ?>
       <li class="nav-item has-treeview menu-open">
       <?php
@@ -22,7 +23,7 @@ with font-awesome or any other icon font library -->
       ?>
 
       <?php
-      if (($page == "Secretary_dashboard") || ($page == "Sec_Pza_dist_genderwise_reports")  || ($page == "Sec_Pza_housestatus_reports") || ($page == "Sec_Pza_dist_genderwise_reports") || ($page == "Sec_Pza_category_wise_report") || ($page == "Sec_Pza_head_wise_report") || ($page == "Sec_RejectedMustahiqeen")) {
+      if (($page == "Secretary_dashboard") || ($page == "Sec_Pza_dist_genderwise_reports")  || ($page == "Sec_Pza_housestatus_reports") || ($page == "Sec_Pza_dist_genderwise_reports") || ($page == "Sec_Pza_category_wise_report") || ($page == "Sec_Pza_head_wise_report") || ($page == "Sec_RejectedMustahiqeen") || ($fullPage == "funds/fund_received")) {
       ?>
         <a href="#" class="nav-link active">
         <?php
@@ -43,7 +44,7 @@ with font-awesome or any other icon font library -->
           <ul class="nav nav-treeview">
   
         <?php
-        if (($page == "Secretary_dashboard") || ($page == "Sec_Pza_dist_genderwise_reports")  || ($page == "Sec_Pza_housestatus_reports") || ($page == "Sec_Pza_dist_genderwise_reports") || ($page == "Sec_Pza_category_wise_report") || ($page == "Sec_Pza_head_wise_report") || ($page == "Sec_RejectedMustahiqeen")) {
+        if (($page == "Secretary_dashboard") || ($page == "Sec_Pza_dist_genderwise_reports")  || ($page == "Sec_Pza_housestatus_reports") || ($page == "Sec_Pza_dist_genderwise_reports") || ($page == "Sec_Pza_category_wise_report") || ($page == "Sec_Pza_head_wise_report") || ($page == "Sec_RejectedMustahiqeen") || ($fullPage == "funds/fund_received")) {
         ?>
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
@@ -65,12 +66,18 @@ with font-awesome or any other icon font library -->
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="<?php echo base_url(); ?>funds/fund_received" class="nav-link <?= ($fullPage == "funds/fund_received") ? "active" : "" ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fund Received Details</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="<?php echo base_url(); ?>Secretary_dashboard" class="nav-link <?php if ($page == "Secretary_dashboard") echo "active"; ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Fund Summary</p>
                 </a>
               </li>
-
+ 
               <li class="nav-item">
                 <a href="<?php echo base_url(); ?>Sec_Pza_dist_genderwise_reports" class="nav-link <?php if ($page == "Sec_Pza_dist_genderwise_reports") echo "active"; ?>">
                   <i class="far fa-circle nav-icon"></i>
