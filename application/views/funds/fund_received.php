@@ -68,6 +68,10 @@
                 <input type="text" class="form-control" name="payment_received" required>
               </div>
               <div class="col-md-6 form-group">
+                <label for="total_expenditure">Total Expenditure</label>
+                <input type="text" class="form-control" name="total_expenditure" required>
+              </div>
+              <div class="col-md-6 form-group">
                 <label for="check_no">Check No</label>
                 <input type="text" class="form-control" name="check_no" required>
               </div>
@@ -122,6 +126,7 @@
           <tr>
               <th>ID</th>
               <th>Amount received</th>
+              <th>Total Expenditure</th>
               <th>Cheque/Challan #</th>
               <th>Cheque/Challan Date</th>
               <th>Financial Year</th>
@@ -137,6 +142,7 @@
                   <tr>
                       <td><?= $row['id']; ?></td>
                       <td><?= $row['payment_received']; ?></td>
+                      <td><?= $row['total_expenditure']; ?></td>
                       <td><?= $row['check_no']; ?></td>
                       <td><?= $row['check_date']; ?></td>
                       <td><?= $row['financial_year']; ?></td>

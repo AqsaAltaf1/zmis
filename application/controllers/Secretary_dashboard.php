@@ -11,7 +11,9 @@ class Secretary_dashboard extends CI_Controller {
 	//$this->load->model('Pza_District_shares_model');
 	}
 	
-	
+	public function UserManagement() {
+        $this->load->view('secretary/UserManagement');
+    }
 	
 	public function index()
 	{

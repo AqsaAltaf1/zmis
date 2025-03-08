@@ -11,7 +11,7 @@ $fullPage = $page . '/' . $subPage;
 with font-awesome or any other icon font library -->
 
     <?php
-     if (($page == "Secretary_dashboard") || ($page == "Sec_Pza_dist_genderwise_reports")  || ($page == "Sec_Pza_housestatus_reports") || ($page == "Sec_Pza_dist_genderwise_reports") || ($page == "Sec_Pza_category_wise_report") || ($page == "Sec_Pza_head_wise_report") || ($page == "Sec_RejectedMustahiqeen") || ($fullPage == "funds/fund_received")) {
+     if (($page == "Secretary_dashboard") || ($page == "Sec_Pza_dist_genderwise_reports")  || ($page == "Sec_Pza_housestatus_reports") || ($page == "Sec_Pza_category_wise_report") || ($page == "Sec_Pza_head_wise_report") || ($page == "Sec_RejectedMustahiqeen") || ($fullPage == "funds/fund_received") || ($page == "Sec_PzaDistwisePaidReport") || ($page == "Sec_Pza_dist_reports") || ($subPage == "yearlyHeadwiseSummary") || ($subPage == "UserManagement")) {
       ?>
       <li class="nav-item has-treeview menu-open">
       <?php
@@ -23,7 +23,7 @@ with font-awesome or any other icon font library -->
       ?>
 
       <?php
-      if (($page == "Secretary_dashboard") || ($page == "Sec_Pza_dist_genderwise_reports")  || ($page == "Sec_Pza_housestatus_reports") || ($page == "Sec_Pza_dist_genderwise_reports") || ($page == "Sec_Pza_category_wise_report") || ($page == "Sec_Pza_head_wise_report") || ($page == "Sec_RejectedMustahiqeen") || ($fullPage == "funds/fund_received")) {
+      if (($page == "Secretary_dashboard") || ($page == "Sec_Pza_dist_genderwise_reports")  || ($page == "Sec_Pza_housestatus_reports") || ($page == "Sec_Pza_dist_genderwise_reports") || ($page == "Sec_Pza_category_wise_report") || ($page == "Sec_Pza_head_wise_report") || ($page == "Sec_RejectedMustahiqeen") || ($fullPage == "funds/fund_received") || ($page == "Sec_PzaDistwisePaidReport") || ($page == "Sec_Pza_dist_reports") || ($subPage == "yearlyHeadwiseSummary") || ($subPage == "UserManagement")) {
       ?>
         <a href="#" class="nav-link active">
         <?php
@@ -128,10 +128,10 @@ with font-awesome or any other icon font library -->
      
 		  
           <?php
-          if (($page == "Sec_PzaDistwisePaidReport") || ($page == "Sec_Pza_dist_reports")|| ($page == "yearlyHeadwiseSummary")) {
-			  ?>
-            <li class="nav-item has-treeview menu-open">
-              <a href="#" class="nav-link active">
+          if ($page == "Sec_PzaDistwisePaidReport" || $page == "Sec_Pza_dist_reports" || $page == "yearlyHeadwiseSummary" || $subPage == "UserManagement") {
+            ?>
+            <li class="nav-item has-treeview <?= ($page == "Sec_PzaDistwisePaidReport" || $page == "Sec_Pza_dist_reports" || $page == "yearlyHeadwiseSummary" || $subPage == "UserManagement") ? "menu-open" : "" ?>">
+              <a href="#" class="nav-link <?= ($page == "Sec_PzaDistwisePaidReport" || $page == "Sec_Pza_dist_reports" || $page == "yearlyHeadwiseSummary" || $subPage == "UserManagement") ? "active" : "" ?>">
               <?php
             } else {
               ?>
@@ -149,6 +149,15 @@ with font-awesome or any other icon font library -->
               </a>
 			  
               <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo base_url(); ?>Secretary_dashboard/UserManagement" 
+                    class="nav-link <?= ($subPage == 'UserManagement') ? 'active' : '' ?>">
+
+                  <i class="fas fa-users-cog"></i>
+                  <p>User Management</p>
+                </a>
+
+                </li>
                 <li class="nav-item">
                   <a href="<?php echo base_url(); ?>Sec_PzaDistwisePaidReport" class="nav-link <?php if ($page == "Sec_PzaDistwisePaidReport") echo "active"; ?>">
                     <i class="fas fa-chart-pie nav-icon"></i>

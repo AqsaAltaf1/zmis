@@ -21,6 +21,7 @@ class Funds extends CI_Controller {
     public function store() {
         // Set form validation rules
         $this->form_validation->set_rules('payment_received', 'Payment Received', 'required');
+        $this->form_validation->set_rules('total_expenditure', 'Total Expenditure', 'required');
         $this->form_validation->set_rules('check_no', 'Check No', 'required');
         $this->form_validation->set_rules('check_date', 'Check Date', 'required');
         $this->form_validation->set_rules('financial_year', 'Financial Year', 'required');

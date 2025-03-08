@@ -46,6 +46,10 @@ class General_model extends CI_model
 	}
 	
 	
+	public function insert_district_user($data) {
+		return $this->db->insert('district_users', $data); // Ensure 'district_users' is the correct table name
+	}
+	
 	
 	
 	
